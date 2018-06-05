@@ -1,0 +1,10 @@
+D:\NancyAPI\NancyAPI\NancyAPI\bin\Debug\NancyAPI.exe.config
+D:\NancyAPI\NancyAPI\NancyAPI\bin\Debug\NancyAPI.exe
+D:\NancyAPI\NancyAPI\NancyAPI\bin\Debug\NancyAPI.pdb
+D:\NancyAPI\NancyAPI\NancyAPI\bin\Debug\Nancy.dll
+D:\NancyAPI\NancyAPI\NancyAPI\bin\Debug\Nancy.Hosting.Self.dll
+D:\NancyAPI\NancyAPI\NancyAPI\bin\Debug\Nancy.xml
+D:\NancyAPI\NancyAPI\NancyAPI\bin\Debug\Nancy.Hosting.Self.xml
+D:\NancyAPI\NancyAPI\NancyAPI\obj\Debug\NancyAPI.csprojResolveAssemblyReference.cache
+D:\NancyAPI\NancyAPI\NancyAPI\obj\Debug\NancyAPI.exe
+D:\NancyAPI\NancyAPI\NancyAPI\obj\Debug\NancyAPI.pdb
