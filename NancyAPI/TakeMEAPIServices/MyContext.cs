@@ -11,12 +11,13 @@ namespace TakeMEAPIServices
         public MyContext() { }
         public MyContext(string connectionString) : base(connectionString) { }
         
-        public IDbSet<MedicineUsers> Medicine { get; set; }
+        public IDbSet<MedicineUser> Medicine { get; set; }
+        public IDbSet<User> User { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder builder)
         {
-            builder.Entity<MedicineUsers>().Property(d => d.MedicineId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            builder.Entity<MedicineUsers>().HasKey(d => d.MedicineId);
+            builder.Entity<MedicineUser>().Property(d => d.MedicineId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            builder.Entity<MedicineUser>().HasKey(d => d.MedicineId);
         }
     }
 }

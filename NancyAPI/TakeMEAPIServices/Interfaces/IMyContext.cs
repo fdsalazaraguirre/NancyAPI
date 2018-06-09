@@ -10,7 +10,8 @@ namespace TakeMEAPIServices.Interfaces
 {
     public interface IMyContext
     {
-        IDbSet<MedicineUsers> Medicine { get; set; }
+        IDbSet<MedicineUser> Medicine { get; set; }
+        IDbSet<User> User { get; set; }
 
         DbEntityEntry Entry(object entity);
         int SaveChanges();

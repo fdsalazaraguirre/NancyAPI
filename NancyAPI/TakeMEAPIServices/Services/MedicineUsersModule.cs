@@ -5,6 +5,7 @@ using Nancy.ModelBinding;
 using System.Data.Entity;
 
 using TakeMEAPIServices.Interfaces;
+using System;
 
 namespace TakeMEAPIServices.Services
 {
@@ -16,9 +17,27 @@ namespace TakeMEAPIServices.Services
 
             Get["/"] = x =>
             {
+                    try { 
+                    ctx.Medicine.Add(new Models.MedicineUser()
+                    {
+                        Comments = "testing",
+                        Name = "name",
+                        UserId = 1,
+                        Enable =true
+                    });
+                    ctx.SaveChanges();
+                    }
+                    catch (Exception ex) {
+                        throw ex;
+                    }
+                return Response.AsJson<object>(ctx.Medicine.Select(q=>q.Enable==true).ToArray()); 
+            };
+
+            Post["/"] = _ =>
+            {
                 using (var context = new MyContext())
                 {
-                    context.Medicine.Add(new Models.MedicineUsers()
+                    context.Medicine.Add(new Models.MedicineUser()
                     {
                         Comments = "testing",
                         Name = "name",
@@ -26,12 +45,7 @@ namespace TakeMEAPIServices.Services
                     });
                     ctx.SaveChanges();
                 }
-                return Response.AsJson<object>(ctx.Medicine.ToArray()); 
-            };
-
-            Post["/"] = _ =>
-            {
-                return HttpStatusCode.NotImplemented;
+                return 1;
             };
 
             Put["/{id:int}"] = parameters =>
