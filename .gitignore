@@ -1,0 +1,5 @@
+/NancyAPI/.vs/NancyAPI/v15/*.suo
+/NancyAPI/.vs/config/applicationhost.config
+obj
+/NancyAPI/NancyAPI/bin
+bin
