@@ -38,6 +38,7 @@ namespace TakeMEAPIServices.Models
         [StringLength(50)]
         public string Comments { get; set; }
 
+        [NotMapped]
         public virtual User User { get; set; }
     }
 }

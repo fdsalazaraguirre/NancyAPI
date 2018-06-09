@@ -6,6 +6,8 @@ using System.Data.Entity;
 
 using TakeMEAPIServices.Interfaces;
 using System;
+using TakeMEAPIServices.Models;
+using System.Collections.Generic;
 
 namespace TakeMEAPIServices.Services
 {
@@ -17,20 +19,7 @@ namespace TakeMEAPIServices.Services
 
             Get["/"] = x =>
             {
-                    try { 
-                    ctx.Medicine.Add(new Models.MedicineUser()
-                    {
-                        Comments = "testing",
-                        Name = "name",
-                        UserId = 1,
-                        Enable =true
-                    });
-                    ctx.SaveChanges();
-                    }
-                    catch (Exception ex) {
-                        throw ex;
-                    }
-                return Response.AsJson<object>(ctx.Medicine.Select(q=>q.Enable==true).ToArray()); 
+                return Response.AsJson<List<MedicineUser>>(ctx.Medicine.Where(q=>q.Enable==true).ToList()); 
             };
 
             Post["/"] = _ =>
@@ -41,7 +30,8 @@ namespace TakeMEAPIServices.Services
                     {
                         Comments = "testing",
                         Name = "name",
-                        UserId = 1
+                        UserId = 1,
+                        Enable = true
                     });
                     ctx.SaveChanges();
                 }
