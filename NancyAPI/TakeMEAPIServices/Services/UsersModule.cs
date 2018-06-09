@@ -6,6 +6,7 @@ using System.Data.Entity;
 
 using TakeMEAPIServices.Interfaces;
 using System;
+using TakeMEAPIServices.Models;
 
 namespace TakeMEAPIServices.Services
 {
@@ -17,22 +18,7 @@ namespace TakeMEAPIServices.Services
 
             Get["/"] = x =>
             {
-                try
-                {
-                    ctx.User.Add(new Models.User()
-                    {
-                        UserName = "Oyuky",
-                        Password = "hola",
-                        UID = "asda",
-                        Type = 1
-                    });
-                    ctx.SaveChanges();
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
-                return Response.AsJson<object>(ctx.User.ToArray());
+               return Response.AsJson<object>(ctx.User.ToArray());
             };
 
             Get["/username/{username}/password/{password}"] = parameters =>
@@ -51,15 +37,15 @@ namespace TakeMEAPIServices.Services
 
             Post["/"] = _ =>
             {
-                using (var context = new MyContext())
+                try
                 {
-                    context.Medicine.Add(new Models.MedicineUser()
-                    {
-                        Comments = "testing",
-                        Name = "name",
-                        UserId = 1
-                    });
+                    var user = this.Bind<User>();
+                    ctx.User.Add(user);
                     ctx.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
                 }
                 return 1;
             };
